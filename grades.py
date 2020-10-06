@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+#/usr/bin/env python3
 import argparse
 import json
 import colorful
 
-gradefile_path = "/home/joco/.grades/grades.json"  # Path of the gradefile
+gradefile_path = "/home/joco/.school/grades.json"  # Path of the gradefile
 courses = ["Deutsch", "Mathematik", "Physik", "Geschichte und Politik", "Franzoesisch", "Chemie", "Wirtschaft"]
 courses_id = ["german", "math", "phyisk", "history", "french", "chemistry", "economics"]  # ID's of the different courses
 
