@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 import argparse
 import json
 import colorful
@@ -7,12 +7,13 @@ gradefile_path = "/home/joco/.school/grades.json"  # Path of the gradefile
 courses = ["Deutsch", "Mathematik", "Physik", "Geschichte und Politik", "Franzoesisch", "Chemie", "Wirtschaft"]
 courses_id = ["german", "math", "phyisk", "history", "french", "chemistry", "economics"]  # ID's of the different courses
 
-# This Method
+
 def print_courses():
     number = 0
     for course_name_string in courses:
         print(str(number) + ": " + course_name_string)
         number += 1
+
 
 def colored_grade(grade):
     if (grade < 4):

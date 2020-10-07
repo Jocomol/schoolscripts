@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 import json
 from datetime import datetime
 import colorful
@@ -45,3 +45,4 @@ with open(lessonsfile_path) as json_file:
     if nextLesson is not None:
         print(colorful.bold("Next Lesson: ") + nextLesson["name"] + ", " + nextLesson["room"] + ", " + str(nextLesson["starttimehour"]) + ":" + str(nextLesson["starttimeminute"]) + "-" + str(nextLesson["endtimehour"]) + ":" + str(nextLesson["endtimeminute"]))
         print("---")
+
