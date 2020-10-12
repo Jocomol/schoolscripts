@@ -4,8 +4,8 @@ import json
 import colorful
 
 gradefile_path = "/home/joco/.school/grades.json"  # Path of the gradefile
-courses = ["Deutsch", "Mathematik", "Physik", "Geschichte und Politik", "Franzoesisch", "Chemie", "Wirtschaft"]
-courses_id = ["german", "math", "phyisk", "history", "french", "chemistry", "economics"]  # ID's of the different courses
+courses = ["Deutsch", "Mathematik", "Physik", "Geschichte und Politik", "Franzoesisch", "Chemie", "Wirtschaft","IDAF"]
+courses_id = ["german", "math", "phyisk", "history", "french", "chemistry", "economics","idaf"]  # ID's of the different courses
 
 
 def print_courses():
