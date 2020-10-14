@@ -29,7 +29,7 @@ with open(lessonsfile_path) as json_file:
     weekday = datetime.today().weekday()
     data = json.load(json_file)
     now = datetime.now()
-    day_running = True #False
+    day_running = False
     for lesson in data[weekday]:
         starttime = now.replace(hour=lesson["starttimehour"], minute=lesson["starttimeminute"], second=0, microsecond=0)
         endtime = now.replace(hour=lesson["endtimehour"], minute=lesson["endtimeminute"], second=0, microsecond=0)
