@@ -35,16 +35,16 @@ with open(lessonsfile_path) as json_file:
         endtime = now.replace(hour=lesson["endtimehour"], minute=lesson["endtimeminute"], second=0, microsecond=0)
         if starttime > now < endtime:
             upcoming_lesson(lesson)
+            day_running = True
         elif starttime < now < endtime:
             current_lesson(lesson)
             day_running = True
-        elif day_running:
-            if weekday == 4 or weekday == 5:
-                print(colorful.green("WEEKEND!!!"))
-            else:
-                print(colorful.red("Tomorrows Lessons:"))
-                if weekday == 7:
-                    weekday = 0
-                for tomorrow_lesson in data[weekday + 1]:
-                    upcoming_lesson(tomorrow_lesson)
-            break
+    if not day_running:
+        if weekday == 4 or weekday == 5:
+            print(colorful.green("WEEKEND!!!"))
+        else:
+            print(colorful.red("Tomorrows Lessons:"))
+            if weekday == 7:
+                weekday = 0
+            for tomorrow_lesson in data[weekday + 1]:
+                upcoming_lesson(tomorrow_lesson)
