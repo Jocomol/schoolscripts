@@ -51,8 +51,8 @@ with open(lessonsfile_path) as json_file:
             print(colorful.green("WEEKEND!!!"))
         else:
             print(colorful.red("Tomorrows Lessons:"))
-            if weekday == 7:
-                weekday = 0
+            if weekday == 6:
+                weekday = -1 
             for tomorrow_lesson in data[weekday + 1]:
                 upcoming_lesson(tomorrow_lesson)
     elif not lesson_running:
