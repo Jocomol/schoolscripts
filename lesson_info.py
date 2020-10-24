@@ -33,19 +33,20 @@ with open(lessonsfile_path) as json_file:
     lesson_running = False
     next_lesson_not_found = True
     next_lesson = None
-    for lesson in data[weekday]:
-        starttime = now.replace(hour=lesson["starttimehour"], minute=lesson["starttimeminute"], second=0, microsecond=0)
-        endtime = now.replace(hour=lesson["endtimehour"], minute=lesson["endtimeminute"], second=0, microsecond=0)
-        if starttime > now < endtime:
-            upcoming_lesson(lesson)
-            if next_lesson_not_found:
-                next_lesson_not_found = False
-                next_lesson = lesson
-            day_running = True
-        elif starttime < now < endtime:
-            current_lesson(lesson)
-            day_running = True
-            lesson_running = True
+    if weekday < 5:
+        for lesson in data[weekday]:
+            starttime = now.replace(hour=lesson["starttimehour"], minute=lesson["starttimeminute"], second=0, microsecond=0)
+            endtime = now.replace(hour=lesson["endtimehour"], minute=lesson["endtimeminute"], second=0, microsecond=0)
+            if starttime > now < endtime:
+                upcoming_lesson(lesson)
+                if next_lesson_not_found:
+                    next_lesson_not_found = False
+                    next_lesson = lesson
+                day_running = True
+            elif starttime < now < endtime:
+                current_lesson(lesson)
+                day_running = True
+                lesson_running = True
     if not day_running:
         if weekday == 4 or weekday == 5:
             print(colorful.green("WEEKEND!!!"))
