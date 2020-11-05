@@ -73,7 +73,7 @@ elif args.list:
             print("-" + colored_grade(grade))
         mean = grade_sum / number_of_grades
 
-        print("mean: " + colored_grade(mean) + "\n")
+        print("mean: " + colored_grade((mean).__round__(1)) + "\n")
         mean_sum += mean
     print("total mean " + colored_grade((mean_sum / number_off_courses).__round__(2)))
 else:
