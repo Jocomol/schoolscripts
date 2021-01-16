@@ -16,9 +16,9 @@ def print_courses():
 
 
 def colored_grade(grade):
-    if (grade < 4):
+    if grade < 4:
         return colorful.red(grade)
-    elif (grade < 4.5):
+    elif grade < 4.5:
         return colorful.yellow(grade)
     else:
         return colorful.green(grade)
@@ -63,18 +63,26 @@ elif args.list:
     mean_sum = 0
     number_off_courses = 0
     for course in data.items():
-        number_off_courses += 1
         print(colorful.bold(course[1]["name"]))
         grade_sum = 0
         number_of_grades = 0
-        for grade in course[1]["grades"]:
-            grade_sum += grade
-            number_of_grades += 1
-            print("-" + colored_grade(grade))
-        mean = grade_sum / number_of_grades
+        mean = None
+        try:
+            for grade in course[1]["grades"]:
+                grade_sum += grade
+                number_of_grades += 1
+                print("-" + colored_grade(grade))
+            mean = grade_sum / number_of_grades
+            number_off_courses += 1
+        except TypeError:
+            pass
 
-        print("mean: " + colored_grade((mean).__round__(1)) + "\n")
-        mean_sum += mean
+        try:
+            print("mean: " + colored_grade(mean.__round__(1)) + "\n")
+            mean_sum += mean
+        except AttributeError:
+            pass
+
     print("total mean " + colored_grade((mean_sum / number_off_courses).__round__(2)))
 else:
     parser.print_help()
