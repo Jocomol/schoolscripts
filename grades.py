@@ -78,7 +78,7 @@ elif args.list:
             pass
 
         try:
-            print("mean: " + colored_grade(mean.__round__(1)) + "\n")
+            print("mean: " + colored_grade(mean.__round__(2)) + "\n")
             mean_sum += mean
         except AttributeError:
             pass
