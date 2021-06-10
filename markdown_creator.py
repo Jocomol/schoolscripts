@@ -6,6 +6,5 @@ try:
     with open(filename, "w+") as file:
         title = "# " + filename.strip(".md").replace("_", " ")
         file.write(title)
-        file.close()
 except(IndexError):
     print("No filename was entered")
